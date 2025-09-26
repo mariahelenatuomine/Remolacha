@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remolacha - Testikaruselli</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tausta-slider {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .tausta-slider::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 250, 247, 0.6);
+      z-index: -1;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      padding: 2em;
+      background-color: rgba(255, 250, 247, 0.85);
+      max-width: 600px;
+      margin: 5em auto;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tausta-slider">
+    <div class="slide active" style="background-image: url('slider1.jpg');"></div>
+    <div class="slide" style="background-image: url('slider2.jpg');"></div>
+    <div class="slide" style="background-image: url('slider3.jpg');"></div>
+  </div>
+
+  <main>
+    <h1>Remolacha – Testisivu</h1>
+    <p>Tämä on testiversio taustakuvakarusellista. Jos näet vaihtuvat kuvat, kaikki toimii!</p>
+  </main>
+
+  <script>
+    let slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function showNextSlide() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }
+
+    setInterval(showNextSlide, 5000);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+/* Fontit */
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Yleiset asetukset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #fffaf7;
+  color: #2c2c2c;
+  min-height: 100vh;
+}
+
+/* Taustakaruselli */
+.tausta-slider {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: -2;
+  overflow: hidden;
+}
+.slide {
+  position: absolute;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.slide.active { opacity: 1; }
+.tausta-slider::after {
+  content: "";
+  position: absolute;
+  width: 100%; height: 100%;
+  background: linear-gradient(120deg, rgba(255,250,247,0.7) 60%, rgba(255,255,255,0.3) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Yläpalkki */
+.ylapalkki {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7em 2em;
+  background: rgba(255,250,247,0.7);
+  box-shadow: 0 2px 12px rgba(107,15,26,0.07);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo {
+  height: 70px;
+  width: auto;
+  filter: drop-shadow(2px 2px 4px rgba(107,15,26,0.15));
+  transition: transform 0.2s;
+}
+.logo:hover { transform: scale(1.05); }
+
+/* Valikko */
+.valikko {
+  position: relative;
+}
+.dropbtn {
+  background: #6b0f1a;
+  color: #fff;
+  padding: 0.6em 1.3em;
+  font-size: 1em;
+  border: none;
+  border-radius: 22px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.dropbtn:hover { background: #a81c2c; }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background: #fff;
+  min-width: 170px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(107,15,26,0.13);
+  z-index: 20;
+  overflow: hidden;
+}
+.dropdown-content a {
+  color: #6b0f1a;
+  padding: 14px 20px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+.dropdown-content a:hover {
+  background: #fbe3e7;
+  color: #a81c2c;
+}
+.valikko:hover .dropdown-content,
+.valikko:focus-within .dropdown-content {
+  display: block;
+}
+
+/* Sisältöalue */
+main {
+  padding: 2.5em 2em;
+  max-width: 700px;
+  margin: 5em auto 3em auto;
+  background: rgba(255,250,247,0.5);
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(107,15,26,0.07);
+  backdrop-filter: blur(1px);
+}
+h1 {
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+  color: #6b0f1a;
+  font-size: 2.3em;
+  margin-bottom: 0.5em;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px #fbe3e7;
+}
+h2 {
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+  color: #6b0f1a;
+  font-size: 2.7em;
+  margin-bottom: 1.2em;
+  font-weight: 400;
+}
+p {
+  line-height: 1.7;
+  font-size: 1.13em;
+  margin-bottom: 1.5em;
+}
+hr {
+  border: none;
+  border-top: 2px solid #fbe3e7;
+  margin: 2em 0 0.5em 0;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2em 0 1em 0;
+  font-size: 1em;
+  color: #6b0f1a;
+  background: rgba(255,250,247,0.6);
+  letter-spacing: 1px;
+  font-family: 'Montserrat', sans-serif;
+  border-top: 2px solid #fbe3e7;
+}
+
+/* Varauslomake */
+.varauslomake {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-top: 2em;
+}
+.varauslomake label {
+  font-weight: 600;
+  color: #6b0f1a;
+}
+.varauslomake input,
+.varauslomake button {
+  padding: 0.7em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+}
+.varauslomake input:focus {
+  outline: none;
+  border-color: #6b0f1a;
+  box-shadow: 0 0 5px rgba(168,28,44,0.3);
+}
+.varauslomake button {
+  background-color: #6b0f1a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.varauslomake button:hover {
+  background-color: #a81c2c;
+}
+
+/* Esittelyosio */
+.esittely {
+  text-align: center;
+  margin-top: 3em;
+}
+.esittely-kuva {
+  width: 220px;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(107,15,26,0.1);
+}
+.esittely-teksti {
+  font-family: 'Playfair Display', serif;
+  color: #6b0f1a;
+  font-size: 1.4em;
+  margin-top: 1em;
+}
+
+/* Mobiilinäkymä */
+@media (max-width: 600px) {
+  .logo { height: 38px; }
+  .ylapalkki { padding: 0.5em 0.7em; }
+  .dropbtn { padding: 0.4em 0.7em; font-size: 0.95em; }
+  h1 { font-size: 1.3em; }
+  h2 { font-size: 2.7em; }
+  main { padding: 1em; margin: 3em 0 2em 0; }
+  .dropdown-content a { padding: 12px 14px; }
+}
